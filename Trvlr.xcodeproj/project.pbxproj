@@ -60,7 +60,6 @@
 		8F184FC02114DF4A00CF2749 = {
 			isa = PBXGroup;
 			children = (
-				8F6257E62116881700794E4D /* HomeViewController.swift */,
 				8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */,
 				8F6257E321167EB300794E4D /* Utils */,
 				8F6257E22116784600794E4D /* Models */,
@@ -95,6 +94,7 @@
 				8F184FDE2114E62300CF2749 /* MapViewController.swift */,
 				8F184FED2114ED1700CF2749 /* TripViewController.swift */,
 				8F184FF12114EE5600CF2749 /* PlanViewController.swift */,
+				8F6257E62116881700794E4D /* HomeViewController.swift */,
 				8F184FEB2114ECC500CF2749 /* DayPlansTableViewController.swift */,
 				8F184FEF2114EE2D00CF2749 /* ExpensesViewController.swift */,
 				8F184FE22114E71C00CF2749 /* ContinentsViewController.swift */,

@@ -10,20 +10,20 @@ import Foundation
 
 class JsonHelper {
     
-    final private let continentUrl = URL(string: "https://api.myjson.com/bins/lylg0")
+    private static let continentUrl = URL(string: "https://api.myjson.com/bins/lylg0")
     
-    func getContinentJson() {
+    static func getContinentJson() {
         downloadJson(url: continentUrl)
     }
     
 }
 
 extension JsonHelper {
-    private func downloadJson(url: URL?) {
+    private static func downloadJson(url: URL?) {
         guard let downloadURL = url else { return }
         // its a continuous process -> resume to finish and return the url
         URLSession.shared.dataTask(with: downloadURL) { data, urlResponse, error in
             print("download")
-        }.resumse()
+        }.resume()
     }
 }
