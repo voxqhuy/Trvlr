@@ -8,20 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		8F184FCD2114DF4A00CF2749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */; };
-		8F184FCF2114DF4A00CF2749 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FCE2114DF4A00CF2749 /* ViewController.swift */; };
 		8F184FD22114DF4A00CF2749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F184FD02114DF4A00CF2749 /* Main.storyboard */; };
 		8F184FD42114DF4B00CF2749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F184FD32114DF4B00CF2749 /* Assets.xcassets */; };
 		8F184FD72114DF4B00CF2749 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F184FD52114DF4B00CF2749 /* LaunchScreen.storyboard */; };
+		8F184FDF2114E62300CF2749 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FDE2114E62300CF2749 /* MapViewController.swift */; };
+		8F184FE12114E70000CF2749 /* YourListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FE02114E70000CF2749 /* YourListViewController.swift */; };
+		8F184FE32114E71C00CF2749 /* ContinentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FE22114E71C00CF2749 /* ContinentsViewController.swift */; };
+		8F184FE82114EC5E00CF2749 /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FE72114EC5E00CF2749 /* CountriesViewController.swift */; };
+		8F184FEA2114EC6A00CF2749 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FE92114EC6A00CF2749 /* CitiesViewController.swift */; };
+		8F184FEC2114ECC500CF2749 /* DayPlansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FEB2114ECC500CF2749 /* DayPlansTableViewController.swift */; };
+		8F184FEE2114ED1700CF2749 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FED2114ED1700CF2749 /* TripViewController.swift */; };
+		8F184FF02114EE2D00CF2749 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FEF2114EE2D00CF2749 /* ExpensesViewController.swift */; };
+		8F184FF22114EE5600CF2749 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FF12114EE5600CF2749 /* PlanViewController.swift */; };
+		8F6257DB21166C2C00794E4D /* ContinentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257DA21166C2C00794E4D /* ContinentStore.swift */; };
+		8F6257DE2116772700794E4D /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F6257DC2116772600794E4D /* countries.json */; };
+		8F6257DF2116772700794E4D /* continents.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F6257DD2116772600794E4D /* continents.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8F184FC92114DF4A00CF2749 /* Trvlr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trvlr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8F184FCE2114DF4A00CF2749 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8F184FD12114DF4A00CF2749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8F184FD32114DF4B00CF2749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F184FD62114DF4B00CF2749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F184FD82114DF4B00CF2749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F184FDE2114E62300CF2749 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8F184FE02114E70000CF2749 /* YourListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourListViewController.swift; sourceTree = "<group>"; };
+		8F184FE22114E71C00CF2749 /* ContinentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsViewController.swift; sourceTree = "<group>"; };
+		8F184FE72114EC5E00CF2749 /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
+		8F184FE92114EC6A00CF2749 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
+		8F184FEB2114ECC500CF2749 /* DayPlansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlansTableViewController.swift; sourceTree = "<group>"; };
+		8F184FED2114ED1700CF2749 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		8F184FEF2114EE2D00CF2749 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
+		8F184FF12114EE5600CF2749 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		8F6257DA21166C2C00794E4D /* ContinentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentStore.swift; sourceTree = "<group>"; };
+		8F6257DC2116772600794E4D /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
+		8F6257DD2116772600794E4D /* continents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = continents.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,8 +60,16 @@
 		8F184FC02114DF4A00CF2749 = {
 			isa = PBXGroup;
 			children = (
+				8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */,
+				8F184FF32114F11F00CF2749 /* Planning */,
+				8F184FF42114F13100CF2749 /* Trip */,
+				8F184FE42114E7C100CF2749 /* Places */,
+				8F184FE52114E7CD00CF2749 /* YourList */,
+				8F184FE62114E7DB00CF2749 /* Map */,
 				8F184FCB2114DF4A00CF2749 /* Trvlr */,
 				8F184FCA2114DF4A00CF2749 /* Products */,
+				8F6257DD2116772600794E4D /* continents.json */,
+				8F6257DC2116772600794E4D /* countries.json */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +84,57 @@
 		8F184FCB2114DF4A00CF2749 /* Trvlr */ = {
 			isa = PBXGroup;
 			children = (
-				8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */,
-				8F184FCE2114DF4A00CF2749 /* ViewController.swift */,
 				8F184FD02114DF4A00CF2749 /* Main.storyboard */,
 				8F184FD32114DF4B00CF2749 /* Assets.xcassets */,
 				8F184FD52114DF4B00CF2749 /* LaunchScreen.storyboard */,
 				8F184FD82114DF4B00CF2749 /* Info.plist */,
 			);
 			path = Trvlr;
+			sourceTree = "<group>";
+		};
+		8F184FE42114E7C100CF2749 /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				8F6257DA21166C2C00794E4D /* ContinentStore.swift */,
+				8F184FE22114E71C00CF2749 /* ContinentsViewController.swift */,
+				8F184FE72114EC5E00CF2749 /* CountriesViewController.swift */,
+				8F184FE92114EC6A00CF2749 /* CitiesViewController.swift */,
+			);
+			path = Places;
+			sourceTree = "<group>";
+		};
+		8F184FE52114E7CD00CF2749 /* YourList */ = {
+			isa = PBXGroup;
+			children = (
+				8F184FE02114E70000CF2749 /* YourListViewController.swift */,
+			);
+			path = YourList;
+			sourceTree = "<group>";
+		};
+		8F184FE62114E7DB00CF2749 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8F184FDE2114E62300CF2749 /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		8F184FF32114F11F00CF2749 /* Planning */ = {
+			isa = PBXGroup;
+			children = (
+				8F184FF12114EE5600CF2749 /* PlanViewController.swift */,
+				8F184FEF2114EE2D00CF2749 /* ExpensesViewController.swift */,
+				8F184FEB2114ECC500CF2749 /* DayPlansTableViewController.swift */,
+			);
+			path = Planning;
+			sourceTree = "<group>";
+		};
+		8F184FF42114F13100CF2749 /* Trip */ = {
+			isa = PBXGroup;
+			children = (
+				8F184FED2114ED1700CF2749 /* TripViewController.swift */,
+			);
+			path = Trip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +197,8 @@
 			files = (
 				8F184FD72114DF4B00CF2749 /* LaunchScreen.storyboard in Resources */,
 				8F184FD42114DF4B00CF2749 /* Assets.xcassets in Resources */,
+				8F6257DE2116772700794E4D /* countries.json in Resources */,
+				8F6257DF2116772700794E4D /* continents.json in Resources */,
 				8F184FD22114DF4A00CF2749 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,8 +210,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F184FCF2114DF4A00CF2749 /* ViewController.swift in Sources */,
+				8F184FE32114E71C00CF2749 /* ContinentsViewController.swift in Sources */,
+				8F184FF22114EE5600CF2749 /* PlanViewController.swift in Sources */,
+				8F184FEE2114ED1700CF2749 /* TripViewController.swift in Sources */,
+				8F184FE12114E70000CF2749 /* YourListViewController.swift in Sources */,
+				8F184FDF2114E62300CF2749 /* MapViewController.swift in Sources */,
+				8F6257DB21166C2C00794E4D /* ContinentStore.swift in Sources */,
+				8F184FEA2114EC6A00CF2749 /* CitiesViewController.swift in Sources */,
+				8F184FEC2114ECC500CF2749 /* DayPlansTableViewController.swift in Sources */,
+				8F184FE82114EC5E00CF2749 /* CountriesViewController.swift in Sources */,
 				8F184FCD2114DF4A00CF2749 /* AppDelegate.swift in Sources */,
+				8F184FF02114EE2D00CF2749 /* ExpensesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
