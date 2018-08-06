@@ -10,26 +10,60 @@ import UIKit
 
 class CountriesViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
+    
+    fileprivate var countries = [Country]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        loadCountries()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return countries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as! CountryCell
+        // TODO: imageview
+        return cell
+    }
+}
 
+extension CountriesViewController {
+    func loadCountries() {
+        TrvlrAPI.fetchCountries { [unowned self] (countriesResult) in
+            switch countriesResult {
+            case let .success(country):
+                print("success countries")
+            case let .failure(error):
+                self.countries.removeAll()
+                if error == .countryJsonError {
+                    print("Error loading country Json")
+                } else if error == .countryDecodeError {
+                    print("Error decoding country data")
+                } else {
+                    print("Something is wrong with fetching countries")
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 }

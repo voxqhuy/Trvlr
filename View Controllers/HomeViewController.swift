@@ -22,10 +22,9 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func chooseACountry(_ sender: UIButton) {
-        if let continentsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContinentsVCID") as? ContinentsViewController {
-            if let navigator = navigationController {
-                navigator.pushViewController(continentsVC, animated: true)
-            }
+        let continentsScene = ContinentsViewController.instantiate(fromAppStoryboard: .Place)
+        if let navigator = navigationController {
+            navigator.pushViewController(continentsScene, animated: true)
         }
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F12A8912117DEF4006E32D8 /* Place.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F12A8902117DEF4006E32D8 /* Place.storyboard */; };
 		8F184FCD2114DF4A00CF2749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */; };
 		8F184FD22114DF4A00CF2749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F184FD02114DF4A00CF2749 /* Main.storyboard */; };
 		8F184FD42114DF4B00CF2749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F184FD32114DF4B00CF2749 /* Assets.xcassets */; };
@@ -20,12 +21,18 @@
 		8F184FEE2114ED1700CF2749 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FED2114ED1700CF2749 /* TripViewController.swift */; };
 		8F184FF02114EE2D00CF2749 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FEF2114EE2D00CF2749 /* ExpensesViewController.swift */; };
 		8F184FF22114EE5600CF2749 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FF12114EE5600CF2749 /* PlanViewController.swift */; };
-		8F6257DB21166C2C00794E4D /* ContinentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257DA21166C2C00794E4D /* ContinentStore.swift */; };
-		8F6257E521167EDB00794E4D /* JsonHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257E421167EDB00794E4D /* JsonHelpers.swift */; };
+		8F3EBFB92118ACBE00CFC124 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3EBFB82118ACBE00CFC124 /* AppStoryboard.swift */; };
+		8F3EBFBB2118BE8800CFC124 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3EBFBA2118BE8800CFC124 /* UIViewController+Additions.swift */; };
+		8F6257E521167EDB00794E4D /* TrvlrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257E421167EDB00794E4D /* TrvlrAPI.swift */; };
 		8F6257E72116881700794E4D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257E62116881700794E4D /* HomeViewController.swift */; };
+		8F6257E921168F2400794E4D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257E821168F2400794E4D /* Errors.swift */; };
+		8F6257EB2116909800794E4D /* Continent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257EA2116909800794E4D /* Continent.swift */; };
+		8FB651AE2118F96E00552D44 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB651AD2118F96E00552D44 /* CountryCell.swift */; };
+		8FB651B12118FD8D00552D44 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB651B02118FD8D00552D44 /* Country.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F12A8902117DEF4006E32D8 /* Place.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Place.storyboard; sourceTree = "<group>"; };
 		8F184FC92114DF4A00CF2749 /* Trvlr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trvlr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F184FD12114DF4A00CF2749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,9 +48,14 @@
 		8F184FED2114ED1700CF2749 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		8F184FEF2114EE2D00CF2749 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
 		8F184FF12114EE5600CF2749 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
-		8F6257DA21166C2C00794E4D /* ContinentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentStore.swift; sourceTree = "<group>"; };
-		8F6257E421167EDB00794E4D /* JsonHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelpers.swift; sourceTree = "<group>"; };
+		8F3EBFB82118ACBE00CFC124 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
+		8F3EBFBA2118BE8800CFC124 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
+		8F6257E421167EDB00794E4D /* TrvlrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrvlrAPI.swift; sourceTree = "<group>"; };
 		8F6257E62116881700794E4D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8F6257E821168F2400794E4D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		8F6257EA2116909800794E4D /* Continent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continent.swift; sourceTree = "<group>"; };
+		8FB651AD2118F96E00552D44 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
+		8FB651B02118FD8D00552D44 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +72,8 @@
 		8F184FC02114DF4A00CF2749 = {
 			isa = PBXGroup;
 			children = (
-				8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */,
+				8FB651AF2118F97B00552D44 /* Custom Views */,
+				8F3EBFBC2118BE9800CFC124 /* Extensions */,
 				8F6257E321167EB300794E4D /* Utils */,
 				8F6257E22116784600794E4D /* Models */,
 				8F6257E12116781300794E4D /* View Controllers */,
@@ -80,17 +93,28 @@
 		8F184FCB2114DF4A00CF2749 /* Trvlr */ = {
 			isa = PBXGroup;
 			children = (
+				8F12A8902117DEF4006E32D8 /* Place.storyboard */,
 				8F184FD02114DF4A00CF2749 /* Main.storyboard */,
 				8F184FD32114DF4B00CF2749 /* Assets.xcassets */,
 				8F184FD52114DF4B00CF2749 /* LaunchScreen.storyboard */,
+				8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */,
 				8F184FD82114DF4B00CF2749 /* Info.plist */,
 			);
 			path = Trvlr;
 			sourceTree = "<group>";
 		};
+		8F3EBFBC2118BE9800CFC124 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8F3EBFBA2118BE8800CFC124 /* UIViewController+Additions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8F6257E12116781300794E4D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8F3EBFB82118ACBE00CFC124 /* AppStoryboard.swift */,
 				8F184FDE2114E62300CF2749 /* MapViewController.swift */,
 				8F184FED2114ED1700CF2749 /* TripViewController.swift */,
 				8F184FF12114EE5600CF2749 /* PlanViewController.swift */,
@@ -108,7 +132,8 @@
 		8F6257E22116784600794E4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8F6257DA21166C2C00794E4D /* ContinentStore.swift */,
+				8F6257EA2116909800794E4D /* Continent.swift */,
+				8FB651B02118FD8D00552D44 /* Country.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,9 +141,18 @@
 		8F6257E321167EB300794E4D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8F6257E421167EDB00794E4D /* JsonHelpers.swift */,
+				8F6257E421167EDB00794E4D /* TrvlrAPI.swift */,
+				8F6257E821168F2400794E4D /* Errors.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8FB651AF2118F97B00552D44 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				8FB651AD2118F96E00552D44 /* CountryCell.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F12A8912117DEF4006E32D8 /* Place.storyboard in Resources */,
 				8F184FD72114DF4B00CF2749 /* LaunchScreen.storyboard in Resources */,
 				8F184FD42114DF4B00CF2749 /* Assets.xcassets in Resources */,
 				8F184FD22114DF4A00CF2749 /* Main.storyboard in Resources */,
@@ -197,11 +232,16 @@
 				8F184FEE2114ED1700CF2749 /* TripViewController.swift in Sources */,
 				8F184FE12114E70000CF2749 /* YourListViewController.swift in Sources */,
 				8F184FDF2114E62300CF2749 /* MapViewController.swift in Sources */,
-				8F6257DB21166C2C00794E4D /* ContinentStore.swift in Sources */,
+				8F6257E921168F2400794E4D /* Errors.swift in Sources */,
 				8F184FEA2114EC6A00CF2749 /* CitiesViewController.swift in Sources */,
 				8F184FEC2114ECC500CF2749 /* DayPlansTableViewController.swift in Sources */,
+				8FB651AE2118F96E00552D44 /* CountryCell.swift in Sources */,
 				8F184FE82114EC5E00CF2749 /* CountriesViewController.swift in Sources */,
-				8F6257E521167EDB00794E4D /* JsonHelpers.swift in Sources */,
+				8FB651B12118FD8D00552D44 /* Country.swift in Sources */,
+				8F3EBFBB2118BE8800CFC124 /* UIViewController+Additions.swift in Sources */,
+				8F6257E521167EDB00794E4D /* TrvlrAPI.swift in Sources */,
+				8F3EBFB92118ACBE00CFC124 /* AppStoryboard.swift in Sources */,
+				8F6257EB2116909800794E4D /* Continent.swift in Sources */,
 				8F184FCD2114DF4A00CF2749 /* AppDelegate.swift in Sources */,
 				8F6257E72116881700794E4D /* HomeViewController.swift in Sources */,
 				8F184FF02114EE2D00CF2749 /* ExpensesViewController.swift in Sources */,
