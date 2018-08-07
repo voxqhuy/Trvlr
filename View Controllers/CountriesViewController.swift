@@ -14,13 +14,15 @@ class CountriesViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     
     var continent: String!
-    fileprivate var countries = [CountryData]()
+    fileprivate var allCountries = [CountryData]()
+    fileprivate var currentCountries = [CountryData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 100
+        searchBar.delegate = self
         
         loadCountries()
     }
@@ -31,10 +33,11 @@ class CountriesViewController: UIViewController {
     }
 }
 
+// MARK: - Table View
 extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries.count
+        return currentCountries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,7 +45,7 @@ extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        let country = countries[indexPath.row]
+        let country = currentCountries[indexPath.row]
         cell.countryNameLabel?.text = country.name
         if country.capital != "" {
             cell.capitalLabel?.text = "Capital: \n\(country.capital)"
@@ -53,8 +56,33 @@ extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
 
+// MARK: - Search bar
+extension CountriesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            currentCountries = allCountries
+            tableView.reloadData()
+            return
+        }
+        
+        currentCountries = allCountries.filter { country -> Bool in
+            return country.name.contains(searchText)
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        return
+    }
+}
+
+// MARK: - Additional Helpers
 extension CountriesViewController {
     func loadCountries() {
         TrvlrAPI.fetchCountries(byContinent: continent) { [unowned self] (countriesResult) in
@@ -63,10 +91,10 @@ extension CountriesViewController {
                 // TODO: append countries into countries and update labels texts accordingly
                 for country in countries {
                     let countryData = CountryData(name: country.1.name, capital: country.1.capital, currency: country.1.currency)
-                    self.countries.append(countryData)
+                    self.allCountries.append(countryData)
                 }
             case let .failure(error):
-                self.countries.removeAll()
+                self.allCountries.removeAll()
                 if error == .countryJsonError {
                     print("Error loading country Json")
                 } else if error == .countryDecodeError {
@@ -75,6 +103,8 @@ extension CountriesViewController {
                     print("Something is wrong with fetching countries")
                 }
             }
+            self.currentCountries = self.allCountries
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
