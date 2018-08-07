@@ -72,7 +72,7 @@ extension CountriesViewController: UISearchBarDelegate {
         }
         
         currentCountries = allCountries.filter { country -> Bool in
-            return country.name.contains(searchText)
+            return country.name.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()
     }
