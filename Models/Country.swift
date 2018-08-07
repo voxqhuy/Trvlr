@@ -16,3 +16,7 @@ struct CountryValue: Codable {
     let capital, currency: String
     let languages: [String]
 }
+
+struct CountryData {
+    let name, capital, currency: String
+}

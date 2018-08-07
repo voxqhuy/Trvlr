@@ -13,12 +13,14 @@ class CountriesViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
     
-    fileprivate var countries = [Country]()
+    var continent: String!
+    fileprivate var countries = [CountryData]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = 100
         
         loadCountries()
     }
@@ -30,16 +32,16 @@ class CountriesViewController: UIViewController {
 }
 
 extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as! CountryCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell") as? CountryCell else {
+            return UITableViewCell()
+        }
+        cell.countryNameLabel?.text = countries[indexPath.row].name
         // TODO: imageview
         return cell
     }
@@ -47,10 +49,14 @@ extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension CountriesViewController {
     func loadCountries() {
-        TrvlrAPI.fetchCountries { [unowned self] (countriesResult) in
+        TrvlrAPI.fetchCountries(byContinent: continent) { [unowned self] (countriesResult) in
             switch countriesResult {
-            case let .success(country):
-                print("success countries")
+            case let .success(countries):
+                // TODO: append countries into countries and update labels texts accordingly
+                for country in countries {
+                    let countryData = CountryData(name: country.1.name, capital: country.1.capital, currency: country.1.currency)
+                    self.countries.append(countryData)
+                }
             case let .failure(error):
                 self.countries.removeAll()
                 if error == .countryJsonError {

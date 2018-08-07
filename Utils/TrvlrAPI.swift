@@ -14,7 +14,7 @@ enum ContinentsResult {
 }
 
 enum CountriesResult {
-    case success(Country)
+    case success([(key: String, value: CountryValue)])
     case failure(CountryError)
 }
 struct TrvlrAPI {
@@ -41,7 +41,7 @@ struct TrvlrAPI {
         }.resume()
     }
     
-    static func fetchCountries(completion: @escaping (CountriesResult) -> Void) {
+    static func fetchCountries(byContinent continent: String, completion: @escaping (CountriesResult) -> Void) {
         guard let downloadURL = countryUrl else { return }
         URLSession.shared.dataTask(with: downloadURL) { data, urlResponse, error in
             guard let data = data, error == nil, urlResponse != nil else {
@@ -51,8 +51,11 @@ struct TrvlrAPI {
             print("downloaded countries")
             do {
                 let decoder = JSONDecoder()
-                let country = try decoder.decode(Country.self, from: data)
-                completion(.success(country))
+                let countries = try decoder.decode(Country.self, from: data)
+                let filteredCountries = countries.filter { $0.value.continent.rawValue == continent }
+                let sortedCountries = filteredCountries.sorted(by: { $0.value.name < $1.value.name })
+                print(sortedCountries)
+                completion(.success(sortedCountries))
             } catch {
                 completion(.failure(.countryDecodeError))
             }

@@ -10,7 +10,7 @@ import UIKit
 
 class ContinentsViewController: UITableViewController {
 
-    fileprivate var continents = [String]()
+    fileprivate var continents = [String: String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +19,25 @@ class ContinentsViewController: UITableViewController {
         tableView.delegate = self
 
         loadContinents()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        switch segue.identifier {
+        case "showCountries":
+            guard let selectedIndexPath = tableView.indexPathsForSelectedRows?.first else { return }
+            let continentKey = Array(continents)[selectedIndexPath.row].key
+            guard let countriesVC = segue.destination as? CountriesViewController else { return }
+            countriesVC.continent = continentKey
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
 
 }
@@ -40,7 +54,7 @@ extension ContinentsViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContinentCell", for: indexPath)
-        cell.textLabel?.text = continents[indexPath.row]
+        cell.textLabel?.text = Array(continents)[indexPath.row].value
         
         return cell
     }
@@ -53,14 +67,13 @@ extension ContinentsViewController {
             [unowned self] (continentsResult) in
             switch continentsResult {
             case let .success(continent):
-                self.continents.append(continent.af)
-                self.continents.append(continent.an)
-                self.continents.append(continent.continentAS)
-                self.continents.append(continent.eu)
-                self.continents.append(continent.na)
-                self.continents.append(continent.oc)
-                self.continents.append(continent.sa)
-                print(self.continents)
+                self.continents["AF"] = continent.af
+                self.continents["AN"] = continent.an
+                self.continents["AS"] = continent.continentAS
+                self.continents["EU"] = continent.eu
+                self.continents["NA"] = continent.na
+                self.continents["OC"] = continent.oc
+                self.continents["SA"] = continent.sa
             case let .failure(error):
                 self.continents.removeAll()
                 if error == .continentJsonError {
@@ -73,7 +86,9 @@ extension ContinentsViewController {
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                print(self.tableView.numberOfRows(inSection: 0))
             }
+            
         }
     }
 }
