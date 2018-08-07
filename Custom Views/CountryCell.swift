@@ -11,7 +11,9 @@ import UIKit
 class CountryCell: UITableViewCell {
 
     @IBOutlet var countryNameLabel: UILabel!
-    @IBOutlet var countryDescriptionLabel: UILabel!
+    @IBOutlet var capitalLabel: UILabel!
+    @IBOutlet var currencyLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

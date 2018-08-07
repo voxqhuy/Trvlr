@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,44 +64,60 @@
                                 <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCell" id="Uj0-lR-g8z" customClass="CountryCell" customModule="Trvlr" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCell" rowHeight="100" id="Uj0-lR-g8z" customClass="CountryCell" customModule="Trvlr" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uj0-lR-g8z" id="fSs-Zc-LO0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lmw-ll-I6e">
-                                                    <rect key="frame" x="10" y="10" width="23.5" height="23.5"/>
+                                                    <rect key="frame" x="10" y="10" width="79.5" height="79.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="lmw-ll-I6e" secondAttribute="height" multiplier="1:1" id="STy-yj-eKQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="County" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLt-lV-REx">
-                                                    <rect key="frame" x="120" y="10" width="128" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLt-lV-REx">
+                                                    <rect key="frame" x="95" y="11" width="265" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kef-6f-SAV">
-                                                    <rect key="frame" x="120" y="76" width="88" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EfU-UW-Ya7">
+                                                    <rect key="frame" x="95" y="88.5" width="265" height="0.0"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXY-FF-hqH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="132.5" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJD-zO-kKU">
+                                                            <rect key="frame" x="132.5" y="0.0" width="132.5" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="lmw-ll-I6e" firstAttribute="top" secondItem="fSs-Zc-LO0" secondAttribute="top" constant="10" id="7yY-2t-dGl"/>
                                                 <constraint firstItem="lmw-ll-I6e" firstAttribute="leading" secondItem="fSs-Zc-LO0" secondAttribute="leading" constant="10" id="9fX-Ua-H34"/>
                                                 <constraint firstAttribute="bottom" secondItem="lmw-ll-I6e" secondAttribute="bottom" constant="10" id="FR7-Fk-0Jo"/>
+                                                <constraint firstItem="xLt-lV-REx" firstAttribute="trailing" secondItem="fSs-Zc-LO0" secondAttribute="trailingMargin" id="JpK-PX-jHG"/>
+                                                <constraint firstItem="xLt-lV-REx" firstAttribute="top" secondItem="fSs-Zc-LO0" secondAttribute="topMargin" id="Mig-f6-Ndn"/>
+                                                <constraint firstItem="xLt-lV-REx" firstAttribute="leading" secondItem="fSs-Zc-LO0" secondAttribute="leadingMargin" constant="80" id="UJC-Yu-2RD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="EfU-UW-Ya7" secondAttribute="trailing" id="a0p-So-Ra4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="EfU-UW-Ya7" secondAttribute="bottom" id="pIx-Hn-D6v"/>
+                                                <constraint firstItem="EfU-UW-Ya7" firstAttribute="leading" secondItem="fSs-Zc-LO0" secondAttribute="leadingMargin" constant="80" id="yBp-2z-Pq5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="countryDescriptionLabel" destination="kef-6f-SAV" id="Zmj-JW-uqI"/>
+                                            <outlet property="capitalLabel" destination="tXY-FF-hqH" id="3Ag-kU-Pd0"/>
                                             <outlet property="countryNameLabel" destination="xLt-lV-REx" id="rGD-T4-RD7"/>
-                                            <outlet property="imageView" destination="lmw-ll-I6e" id="V26-TQ-mOM"/>
+                                            <outlet property="currencyLabel" destination="dJD-zO-kKU" id="c6c-qh-eWb"/>
+                                            <outlet property="imageView" destination="lmw-ll-I6e" id="pij-vZ-ziR"/>
                                             <segue destination="ox2-dA-bWY" kind="show" id="4oo-zO-8SQ"/>
                                         </connections>
                                     </tableViewCell>

@@ -33,8 +33,8 @@ struct TrvlrAPI {
             print("downloaded continents")
             do {
                 let decoder = JSONDecoder()
-                let continent = try decoder.decode(Continent.self, from: data)
-                completion(.success(continent))
+                let continents = try decoder.decode(Continent.self, from: data)
+                completion(.success(continents))
             } catch {
                 completion(.failure(.continentDecodeError))
             }

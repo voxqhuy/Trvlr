@@ -41,8 +41,16 @@ extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell") as? CountryCell else {
             return UITableViewCell()
         }
-        cell.countryNameLabel?.text = countries[indexPath.row].name
-        // TODO: imageview
+        
+        let country = countries[indexPath.row]
+        cell.countryNameLabel?.text = country.name
+        if country.capital != "" {
+            cell.capitalLabel?.text = "Capital: \n\(country.capital)"
+        }
+        if country.currency != "" {
+            cell.currencyLabel.text = "Currency: \n\(country.currency)"
+        }
+        
         return cell
     }
 }
