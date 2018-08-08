@@ -52,20 +52,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Where do you want to go..." translatesAutoresizingMaskIntoConstraints="NO" id="V6X-1f-gAu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YSj-dH-R9C">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Where do you want to go..." id="V6X-1f-gAu">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                    </scopeButtonTitles>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCell" rowHeight="100" id="Uj0-lR-g8z" customClass="CountryCell" customModule="Trvlr" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="84" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uj0-lR-g8z" id="fSs-Zc-LO0">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
@@ -126,13 +127,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="YSj-dH-R9C" firstAttribute="top" secondItem="V6X-1f-gAu" secondAttribute="bottom" id="52D-FQ-lGd"/>
-                            <constraint firstItem="pON-jv-EjS" firstAttribute="trailing" secondItem="YSj-dH-R9C" secondAttribute="trailing" id="591-2G-iRl"/>
-                            <constraint firstItem="V6X-1f-gAu" firstAttribute="top" secondItem="pON-jv-EjS" secondAttribute="top" id="5VQ-WA-mWx"/>
-                            <constraint firstItem="V6X-1f-gAu" firstAttribute="leading" secondItem="YSj-dH-R9C" secondAttribute="leading" id="KkX-jq-Kbb"/>
-                            <constraint firstItem="V6X-1f-gAu" firstAttribute="trailing" secondItem="YSj-dH-R9C" secondAttribute="trailing" id="a8f-sR-b7o"/>
-                            <constraint firstItem="pON-jv-EjS" firstAttribute="bottom" secondItem="YSj-dH-R9C" secondAttribute="bottom" id="jnd-5w-VXi"/>
-                            <constraint firstItem="YSj-dH-R9C" firstAttribute="leading" secondItem="pON-jv-EjS" secondAttribute="leading" id="ueU-Th-Goe"/>
+                            <constraint firstItem="YSj-dH-R9C" firstAttribute="top" secondItem="pON-jv-EjS" secondAttribute="top" id="0aD-YF-YMf"/>
+                            <constraint firstItem="YSj-dH-R9C" firstAttribute="bottom" secondItem="pON-jv-EjS" secondAttribute="bottom" id="PkM-0A-Vdl"/>
+                            <constraint firstItem="YSj-dH-R9C" firstAttribute="leading" secondItem="pON-jv-EjS" secondAttribute="leading" id="drU-rC-uzT"/>
+                            <constraint firstItem="YSj-dH-R9C" firstAttribute="trailing" secondItem="pON-jv-EjS" secondAttribute="trailing" id="nUl-tT-4nb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pON-jv-EjS"/>
                     </view>

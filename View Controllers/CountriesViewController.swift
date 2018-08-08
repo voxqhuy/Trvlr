@@ -23,6 +23,8 @@ class CountriesViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        tableView.tableHeaderView = UIView()
+        navigationItem.titleView = searchBar
         
         loadCountries()
     }
@@ -75,10 +77,6 @@ extension CountriesViewController: UISearchBarDelegate {
             return country.name.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        return
     }
 }
 
