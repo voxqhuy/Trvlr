@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         print(#function)
-        let countriesCaching = 
+//        let countriesCaching = 
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

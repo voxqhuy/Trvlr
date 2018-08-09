@@ -14,14 +14,12 @@ class CountriesViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     
     var continent: String!
-    private let archiveKey = "countries.archive"
-    private var allCountries = [CountryData]()
-    private var currentCountries = [CountryData]()
+    let countryBank = CountryBank()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dataSource = self
+        tableView.dataSource = countryBank
         tableView.delegate = self
         searchBar.delegate = self
         tableView.tableHeaderView = UIView()
@@ -37,29 +35,7 @@ class CountriesViewController: UIViewController {
 }
 
 // MARK: - Table View
-extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentCountries.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CountryCell.identifier) as? CountryCell else {
-            return UITableViewCell()
-        }
-        
-        let country = currentCountries[indexPath.row]
-        cell.countryNameLabel?.text = country.name
-        if country.capital != "" {
-            cell.capitalLabel?.text = "Capital: \n\(country.capital)"
-        }
-        if country.currency != "" {
-            cell.currencyLabel.text = "Currency: \n\(country.currency)"
-        }
-        
-        return cell
-    }
-    
+extension CountriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -69,14 +45,12 @@ extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
 extension CountriesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            currentCountries = allCountries
+            countryBank.currentCountries = countryBank.allCountries
             tableView.reloadData()
             return
         }
         
-        currentCountries = allCountries.filter { country -> Bool in
-            return country.name.lowercased().contains(searchText.lowercased())
-        }
+        countryBank.filterCountries(withText: searchText)
         tableView.reloadData()
     }
 }
@@ -84,41 +58,46 @@ extension CountriesViewController: UISearchBarDelegate {
 // MARK: - Additional Helpers
 extension CountriesViewController {
     func loadCountries() {
-        TrvlrAPI.fetchCountries(byContinent: continent) { [unowned self] (countriesResult) in
-            switch countriesResult {
-            case let .success(countries):
-                // TODO: append countries into countries and update labels texts accordingly
-                for country in countries {
-                    let countryData = CountryData(name: country.1.name, capital: country.1.capital, currency: country.1.currency)
-                    
-//                    let encoder = JSONEncoder()
-//                    let jsonData = try encoder.encode(countryData)
-                    self.allCountries.append(countryData)
-                }
-            case let .failure(error):
-                self.allCountries.removeAll()
-                if error == .countryJsonError {
-                    print("Error loading country Json")
-                } else if error == .countryDecodeError {
-                    print("Error decoding country data")
-                } else {
-                    print("Something is wrong with fetching countries")
-                }
-            }
-            self.currentCountries = self.allCountries
+        // check archived files in Caches directory
+        if !countryBank.allCountries.isEmpty {
             
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        } else {
+            TrvlrAPI.fetchCountries(byContinent: continent) { [unowned self] (countriesResult) in
+                switch countriesResult {
+                case let .success(countries):
+                    
+                    for country in countries {
+                        let countryData = CountryData(name: country.1.name, capital: country.1.capital, currency: country.1.currency)
+                        
+                        self.countryBank.allCountries.append(countryData)
+                    }
+                    // archive countries into Caches directory
+                    self.countryBank.saveCountries()
+                    
+                case let .failure(error):
+                    self.countryBank.allCountries.removeAll()
+                    
+                    if error == .countryJsonError {
+                        print("Error loading country Json")
+                    } else if error == .countryDecodeError {
+                        print("Error decoding country data")
+                    } else {
+                        print("Something is wrong with fetching countries")
+                    }
+                }
+                
+                self.countryBank.currentCountries = self.countryBank.allCountries
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
+
 //        do {
 //            let data = try PropertyListEncoder().encode(self.allCountries)
 //            let success = NSKeyedArchiver.archiveRootObject(data, toFile: )
 //        }
     }
     
-    func saveCountries() -> Bool {
-        let key = cachingURL(forKey: archiveKey)
-        return NSKeyedArchiver.archiveRootObject(allCountries, toFile: key.path)
-    }
 }

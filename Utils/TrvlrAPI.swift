@@ -54,7 +54,6 @@ struct TrvlrAPI {
                 let countries = try decoder.decode(Country.self, from: data)
                 let filteredCountries = countries.filter { $0.value.continent.rawValue == continent }
                 let sortedCountries = filteredCountries.sorted(by: { $0.value.name < $1.value.name })
-                print(sortedCountries)
                 completion(.success(sortedCountries))
             } catch {
                 completion(.failure(.countryDecodeError))
