@@ -17,6 +17,34 @@ struct CountryValue: Codable {
     let languages: [String]
 }
 
-struct CountryData {
+class CountryData: Codable {
     let name, capital, currency: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case capital
+        case currency
+    }
+    
+    init(name: String, capital: String, currency: String) {
+        self.name = name
+        self.capital = capital
+        self.currency = currency
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        name = try container.decode(String.self, forKey: .name)
+        capital = try container.decode(String.self, forKey: .capital)
+        currency = try container.decode(String.self, forKey: .currency)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(name, forKey: .name)
+        try container.encode(capital, forKey: .capital)
+        try container.encode(currency, forKey: .currency)
+    }
 }

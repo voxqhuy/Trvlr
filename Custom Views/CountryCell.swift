@@ -13,16 +13,29 @@ class CountryCell: UITableViewCell {
     @IBOutlet var countryNameLabel: UILabel!
     @IBOutlet var capitalLabel: UILabel!
     @IBOutlet var currencyLabel: UILabel!
+    @IBOutlet var spinner: UIActivityIndicatorView!
+    
+    static let identifier = "CountryCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        update(with: nil)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        update(with: nil)
     }
 
+    func update(with image: UIImage?) {
+        if let imageToDisplay = image {
+            spinner.stopAnimating()
+            imageView?.image = imageToDisplay
+        } else {
+            spinner.startAnimating()
+            imageView?.image = nil
+        }
+    }
 }

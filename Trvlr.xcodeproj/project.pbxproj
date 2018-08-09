@@ -23,10 +23,13 @@
 		8F184FF22114EE5600CF2749 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FF12114EE5600CF2749 /* PlanViewController.swift */; };
 		8F3EBFB92118ACBE00CFC124 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3EBFB82118ACBE00CFC124 /* AppStoryboard.swift */; };
 		8F3EBFBB2118BE8800CFC124 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3EBFBA2118BE8800CFC124 /* UIViewController+Additions.swift */; };
+		8F43C51A211B9FD500C8662C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F43C519211B9FD500C8662C /* Helper.swift */; };
+		8F43C51C211BB0EF00C8662C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F43C51B211BB0EF00C8662C /* Image.swift */; };
 		8F6257E521167EDB00794E4D /* TrvlrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257E421167EDB00794E4D /* TrvlrAPI.swift */; };
 		8F6257E72116881700794E4D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257E62116881700794E4D /* HomeViewController.swift */; };
 		8F6257E921168F2400794E4D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257E821168F2400794E4D /* Errors.swift */; };
 		8F6257EB2116909800794E4D /* Continent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257EA2116909800794E4D /* Continent.swift */; };
+		8F93558D211CA59400918EA3 /* CountryBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F93558C211CA59400918EA3 /* CountryBank.swift */; };
 		8FB651AE2118F96E00552D44 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB651AD2118F96E00552D44 /* CountryCell.swift */; };
 		8FB651B12118FD8D00552D44 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB651B02118FD8D00552D44 /* Country.swift */; };
 /* End PBXBuildFile section */
@@ -50,10 +53,13 @@
 		8F184FF12114EE5600CF2749 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		8F3EBFB82118ACBE00CFC124 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		8F3EBFBA2118BE8800CFC124 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
+		8F43C519211B9FD500C8662C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		8F43C51B211BB0EF00C8662C /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8F6257E421167EDB00794E4D /* TrvlrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrvlrAPI.swift; sourceTree = "<group>"; };
 		8F6257E62116881700794E4D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8F6257E821168F2400794E4D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		8F6257EA2116909800794E4D /* Continent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continent.swift; sourceTree = "<group>"; };
+		8F93558C211CA59400918EA3 /* CountryBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryBank.swift; sourceTree = "<group>"; };
 		8FB651AD2118F96E00552D44 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		8FB651B02118FD8D00552D44 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,12 +78,12 @@
 		8F184FC02114DF4A00CF2749 = {
 			isa = PBXGroup;
 			children = (
+				8F184FCB2114DF4A00CF2749 /* Trvlr */,
 				8F3EBFBC2118BE9800CFC124 /* Extensions */,
 				8F6257E321167EB300794E4D /* Utils */,
 				8F6257E22116784600794E4D /* Models */,
 				8F6257E12116781300794E4D /* View Controllers */,
 				8FB651AF2118F97B00552D44 /* Custom Views */,
-				8F184FCB2114DF4A00CF2749 /* Trvlr */,
 				8F184FCA2114DF4A00CF2749 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,17 +120,12 @@
 		8F6257E12116781300794E4D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8F3EBFB82118ACBE00CFC124 /* AppStoryboard.swift */,
+				8F6257E62116881700794E4D /* HomeViewController.swift */,
 				8F184FDE2114E62300CF2749 /* MapViewController.swift */,
 				8F184FED2114ED1700CF2749 /* TripViewController.swift */,
-				8F184FF12114EE5600CF2749 /* PlanViewController.swift */,
-				8F6257E62116881700794E4D /* HomeViewController.swift */,
-				8F184FEB2114ECC500CF2749 /* DayPlansTableViewController.swift */,
-				8F184FEF2114EE2D00CF2749 /* ExpensesViewController.swift */,
-				8F184FE22114E71C00CF2749 /* ContinentsViewController.swift */,
-				8F184FE72114EC5E00CF2749 /* CountriesViewController.swift */,
-				8F184FE92114EC6A00CF2749 /* CitiesViewController.swift */,
 				8F184FE02114E70000CF2749 /* YourListViewController.swift */,
+				8F93558A211C9C9B00918EA3 /* Places */,
+				8F93558B211C9CDF00918EA3 /* Planning */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -134,6 +135,8 @@
 			children = (
 				8F6257EA2116909800794E4D /* Continent.swift */,
 				8FB651B02118FD8D00552D44 /* Country.swift */,
+				8F43C51B211BB0EF00C8662C /* Image.swift */,
+				8F93558C211CA59400918EA3 /* CountryBank.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,10 +144,32 @@
 		8F6257E321167EB300794E4D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8F3EBFB82118ACBE00CFC124 /* AppStoryboard.swift */,
 				8F6257E421167EDB00794E4D /* TrvlrAPI.swift */,
 				8F6257E821168F2400794E4D /* Errors.swift */,
+				8F43C519211B9FD500C8662C /* Helper.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8F93558A211C9C9B00918EA3 /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				8F184FE22114E71C00CF2749 /* ContinentsViewController.swift */,
+				8F184FE72114EC5E00CF2749 /* CountriesViewController.swift */,
+				8F184FE92114EC6A00CF2749 /* CitiesViewController.swift */,
+			);
+			path = Places;
+			sourceTree = "<group>";
+		};
+		8F93558B211C9CDF00918EA3 /* Planning */ = {
+			isa = PBXGroup;
+			children = (
+				8F184FF12114EE5600CF2749 /* PlanViewController.swift */,
+				8F184FEB2114ECC500CF2749 /* DayPlansTableViewController.swift */,
+				8F184FEF2114EE2D00CF2749 /* ExpensesViewController.swift */,
+			);
+			path = Planning;
 			sourceTree = "<group>";
 		};
 		8FB651AF2118F97B00552D44 /* Custom Views */ = {
@@ -230,12 +255,15 @@
 				8F184FE32114E71C00CF2749 /* ContinentsViewController.swift in Sources */,
 				8F184FF22114EE5600CF2749 /* PlanViewController.swift in Sources */,
 				8F184FEE2114ED1700CF2749 /* TripViewController.swift in Sources */,
+				8F43C51A211B9FD500C8662C /* Helper.swift in Sources */,
 				8F184FE12114E70000CF2749 /* YourListViewController.swift in Sources */,
 				8F184FDF2114E62300CF2749 /* MapViewController.swift in Sources */,
 				8F6257E921168F2400794E4D /* Errors.swift in Sources */,
 				8F184FEA2114EC6A00CF2749 /* CitiesViewController.swift in Sources */,
 				8F184FEC2114ECC500CF2749 /* DayPlansTableViewController.swift in Sources */,
+				8F43C51C211BB0EF00C8662C /* Image.swift in Sources */,
 				8FB651AE2118F96E00552D44 /* CountryCell.swift in Sources */,
+				8F93558D211CA59400918EA3 /* CountryBank.swift in Sources */,
 				8F184FE82114EC5E00CF2749 /* CountriesViewController.swift in Sources */,
 				8FB651B12118FD8D00552D44 /* Country.swift in Sources */,
 				8F3EBFBB2118BE8800CFC124 /* UIViewController+Additions.swift in Sources */,

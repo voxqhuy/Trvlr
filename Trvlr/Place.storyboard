@@ -72,12 +72,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lmw-ll-I6e">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lmw-ll-I6e">
                                                     <rect key="frame" x="10" y="10" width="79.5" height="79.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="lmw-ll-I6e" secondAttribute="height" multiplier="1:1" id="STy-yj-eKQ"/>
                                                     </constraints>
                                                 </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="63u-hh-IA6">
+                                                    <rect key="frame" x="40" y="11" width="20" height="78"/>
+                                                </activityIndicatorView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLt-lV-REx">
                                                     <rect key="frame" x="95" y="11" width="265" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -111,7 +114,10 @@
                                                 <constraint firstItem="xLt-lV-REx" firstAttribute="leading" secondItem="fSs-Zc-LO0" secondAttribute="leadingMargin" constant="80" id="UJC-Yu-2RD"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="EfU-UW-Ya7" secondAttribute="trailing" id="a0p-So-Ra4"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="EfU-UW-Ya7" secondAttribute="bottom" id="pIx-Hn-D6v"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="63u-hh-IA6" secondAttribute="bottom" id="wTJ-wQ-5N2"/>
+                                                <constraint firstItem="63u-hh-IA6" firstAttribute="centerY" secondItem="fSs-Zc-LO0" secondAttribute="centerY" id="yAC-bc-oTM"/>
                                                 <constraint firstItem="EfU-UW-Ya7" firstAttribute="leading" secondItem="fSs-Zc-LO0" secondAttribute="leadingMargin" constant="80" id="yBp-2z-Pq5"/>
+                                                <constraint firstItem="63u-hh-IA6" firstAttribute="leading" secondItem="fSs-Zc-LO0" secondAttribute="leadingMargin" constant="25" id="ynN-ys-uoa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -119,6 +125,7 @@
                                             <outlet property="countryNameLabel" destination="xLt-lV-REx" id="rGD-T4-RD7"/>
                                             <outlet property="currencyLabel" destination="dJD-zO-kKU" id="c6c-qh-eWb"/>
                                             <outlet property="imageView" destination="lmw-ll-I6e" id="pij-vZ-ziR"/>
+                                            <outlet property="spinner" destination="63u-hh-IA6" id="bji-SM-Agj"/>
                                             <segue destination="ox2-dA-bWY" kind="show" id="4oo-zO-8SQ"/>
                                         </connections>
                                     </tableViewCell>

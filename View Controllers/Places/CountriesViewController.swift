@@ -14,8 +14,9 @@ class CountriesViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     
     var continent: String!
-    fileprivate var allCountries = [CountryData]()
-    fileprivate var currentCountries = [CountryData]()
+    private let archiveKey = "countries.archive"
+    private var allCountries = [CountryData]()
+    private var currentCountries = [CountryData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell") as? CountryCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CountryCell.identifier) as? CountryCell else {
             return UITableViewCell()
         }
         
@@ -89,6 +90,9 @@ extension CountriesViewController {
                 // TODO: append countries into countries and update labels texts accordingly
                 for country in countries {
                     let countryData = CountryData(name: country.1.name, capital: country.1.capital, currency: country.1.currency)
+                    
+//                    let encoder = JSONEncoder()
+//                    let jsonData = try encoder.encode(countryData)
                     self.allCountries.append(countryData)
                 }
             case let .failure(error):
@@ -107,5 +111,14 @@ extension CountriesViewController {
                 self.tableView.reloadData()
             }
         }
+//        do {
+//            let data = try PropertyListEncoder().encode(self.allCountries)
+//            let success = NSKeyedArchiver.archiveRootObject(data, toFile: )
+//        }
+    }
+    
+    func saveCountries() -> Bool {
+        let key = cachingURL(forKey: archiveKey)
+        return NSKeyedArchiver.archiveRootObject(allCountries, toFile: key.path)
     }
 }
