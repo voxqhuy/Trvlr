@@ -10,14 +10,14 @@ import UIKit
 
 class ContinentsViewController: UITableViewController {
 
-    fileprivate var continents = [String: String]()
+    fileprivate var continents = [String: ContinentData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-
+//        tableView.contentInset = UIEdgeInsetsMake(0, 15, 0, 15)
         loadContinents()
         
     }
@@ -45,16 +45,38 @@ class ContinentsViewController: UITableViewController {
 // MARK: - UITableViewDataSource
 extension ContinentsViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return continents.count
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContinentCell", for: indexPath)
-        cell.textLabel?.text = Array(continents)[indexPath.row].value
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ContinentCell.identifier) as? ContinentCell else {
+            return UITableViewCell()
+        }
+        let continentData = Array(continents)[indexPath.section].value
+        cell.continentNameLabel.text = continentData.name
+        cell.continentNameLabel.layer.zPosition = 1
+        cell.bgView.image = continentData.image
+        cell.bgView.alpha = 0.8
+        cell.backgroundColor = cell.backgroundColor
+        cell.backgroundColor = cell.contentView.backgroundColor
         
         return cell
     }
@@ -67,13 +89,13 @@ extension ContinentsViewController {
             [unowned self] (continentsResult) in
             switch continentsResult {
             case let .success(continent):
-                self.continents["AF"] = continent.af
-                self.continents["AN"] = continent.an
-                self.continents["AS"] = continent.continentAS
-                self.continents["EU"] = continent.eu
-                self.continents["NA"] = continent.na
-                self.continents["OC"] = continent.oc
-                self.continents["SA"] = continent.sa
+                self.continents["AF"] = ContinentData(name: continent.af, image: UIImage(named: "Africa")!)
+                self.continents["AN"] = ContinentData(name: continent.an, image: UIImage(named: "Africa")!)
+                self.continents["AS"] = ContinentData(name: continent.continentAS, image: UIImage(named: "Asia")!)
+                self.continents["EU"] = ContinentData(name: continent.eu, image: UIImage(named: "Europe")!)
+                self.continents["NA"] = ContinentData(name: continent.na, image: UIImage(named: "North America")!)
+                self.continents["OC"] = ContinentData(name: continent.oc, image: UIImage(named: "Africa")!)
+                self.continents["SA"] = ContinentData(name: continent.sa, image: UIImage(named: "South America")!)
             case let .failure(error):
                 self.continents.removeAll()
                 if error == .continentJsonError {

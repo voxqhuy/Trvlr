@@ -249,6 +249,9 @@
                         <viewLayoutGuide key="safeArea" id="Wad-PW-dzo"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="h7o-s0-wvq"/>
+                    <connections>
+                        <outlet property="mapView" destination="bZE-rA-VJL" id="Dxn-zh-Oyc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gN1-hR-eal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

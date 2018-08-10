@@ -7,29 +7,33 @@
 //
 
 import UIKit
+import MapKit
 
 class MapViewController: UIViewController {
 
+    @IBOutlet var mapView: MKMapView!
+    let vinhAnnotation = Annotation(title: "Vinh city", coordinate: CLLocationCoordinate2D(latitude: 18.6796, longitude: 2015.6813))
+    let phuketAnnotation = Annotation(title: "Phuket Island", coordinate: CLLocationCoordinate2D(latitude: 7.9519, longitude: 98.3381))
+    let sauAnnotation = Annotation(title: "Collegedale city", coordinate: CLLocationCoordinate2D(latitude: 35.0531, longitude: -85.0502))
+    override func loadView() {
+        mapView = MKMapView()
+        mapView.delegate = self
+        let annotations = [vinhAnnotation, phuketAnnotation, sauAnnotation]
+        mapView.addAnnotations(annotations)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+extension MapViewController: MKMapViewDelegate {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

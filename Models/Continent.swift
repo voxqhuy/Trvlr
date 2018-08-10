@@ -6,7 +6,7 @@
 //  Copyright © 2018 Vo Huy. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Continent: Codable {
     let af, an, continentAS, eu, na, oc, sa: String
@@ -20,4 +20,9 @@ struct Continent: Codable {
         case oc = "OC"
         case sa = "SA"
     }
+}
+
+struct ContinentData {
+    let name: String
+    let image: UIImage
 }

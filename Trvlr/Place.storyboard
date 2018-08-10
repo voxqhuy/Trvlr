@@ -21,14 +21,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContinentCell" id="zS2-PL-PlH">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContinentCell" rowHeight="125" id="zS2-PL-PlH" customClass="ContinentCell" customModule="Trvlr" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zS2-PL-PlH" id="2Kl-UF-cWl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fee-34-Nfw">
+                                            <rect key="frame" x="36" y="21" width="56.5" height="29"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="24"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cyj-8W-7f7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Fee-34-Nfw" firstAttribute="leading" secondItem="2Kl-UF-cWl" secondAttribute="leadingMargin" constant="20" id="4by-5q-PWQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="cyj-8W-7f7" secondAttribute="bottom" id="913-3i-nUV"/>
+                                        <constraint firstAttribute="trailing" secondItem="cyj-8W-7f7" secondAttribute="trailing" id="JTw-qa-1Ij"/>
+                                        <constraint firstItem="Fee-34-Nfw" firstAttribute="top" secondItem="2Kl-UF-cWl" secondAttribute="topMargin" constant="10" id="Pf0-m1-CQc"/>
+                                        <constraint firstItem="cyj-8W-7f7" firstAttribute="leading" secondItem="2Kl-UF-cWl" secondAttribute="leading" id="Xhs-mr-6uD"/>
+                                        <constraint firstItem="cyj-8W-7f7" firstAttribute="top" secondItem="2Kl-UF-cWl" secondAttribute="top" id="azt-vR-0Ix"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bgView" destination="cyj-8W-7f7" id="ig7-jZ-W6b"/>
+                                    <outlet property="continentNameLabel" destination="Fee-34-Nfw" id="yin-LU-EAA"/>
                                     <segue destination="66W-Uw-JLb" kind="show" identifier="showCountries" id="ypA-w9-OjM"/>
                                 </connections>
                             </tableViewCell>
@@ -42,7 +63,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAs-fx-crp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="-324"/>
+            <point key="canvasLocation" x="772" y="-324.28785607196403"/>
         </scene>
         <!--Countries View Controller-->
         <scene sceneID="CiB-2J-zZk">
@@ -172,6 +193,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sux-Po-tEC" id="KKu-P2-Bea">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulq-Tp-KIL">
+                                                    <rect key="frame" x="155" y="0.0" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
