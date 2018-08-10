@@ -11,15 +11,24 @@ import MapKit
 
 class MapViewController: UIViewController {
 
-    @IBOutlet var mapView: MKMapView!
+    var mapView: MKMapView!
     let vinhAnnotation = Annotation(title: "Vinh city", coordinate: CLLocationCoordinate2D(latitude: 18.6796, longitude: 2015.6813))
     let phuketAnnotation = Annotation(title: "Phuket Island", coordinate: CLLocationCoordinate2D(latitude: 7.9519, longitude: 98.3381))
     let sauAnnotation = Annotation(title: "Collegedale city", coordinate: CLLocationCoordinate2D(latitude: 35.0531, longitude: -85.0502))
+    
     override func loadView() {
         mapView = MKMapView()
         mapView.delegate = self
         let annotations = [vinhAnnotation, phuketAnnotation, sauAnnotation]
         mapView.addAnnotations(annotations)
+        mapView.showsCompass = false
+        mapView.showsScale = true
+        
+        view = mapView
+        
+//        let scale = MKScaleView(mapView: mapView)
+//        scale.scaleVisibility = .visible
+//        view.addSubview(scale)
     }
     
     override func viewDidLoad() {
@@ -35,5 +44,20 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? Annotation else { return nil }
+        
+        let identifier = "marker"
+        var view: MKMarkerAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: 0, y: 20)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    }
 }

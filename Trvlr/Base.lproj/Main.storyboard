@@ -234,24 +234,10 @@
                     <view key="view" contentMode="scaleToFill" id="XDf-q7-QuG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bZE-rA-VJL">
-                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
-                            </mapView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Wad-PW-dzo" firstAttribute="bottom" secondItem="bZE-rA-VJL" secondAttribute="bottom" id="Q6E-Au-8gI"/>
-                            <constraint firstItem="bZE-rA-VJL" firstAttribute="top" secondItem="Wad-PW-dzo" secondAttribute="top" id="t50-Qh-EOg"/>
-                            <constraint firstItem="bZE-rA-VJL" firstAttribute="leading" secondItem="Wad-PW-dzo" secondAttribute="leading" id="uv9-hm-0Di"/>
-                            <constraint firstItem="Wad-PW-dzo" firstAttribute="trailing" secondItem="bZE-rA-VJL" secondAttribute="trailing" id="wQC-zw-rUN"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Wad-PW-dzo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="h7o-s0-wvq"/>
-                    <connections>
-                        <outlet property="mapView" destination="bZE-rA-VJL" id="Dxn-zh-Oyc"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="h7o-s0-wvq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gN1-hR-eal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -261,7 +247,7 @@
         <scene sceneID="m5U-rb-FMQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Etb-jc-be9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Your List" id="hWW-cE-NRw"/>
+                    <tabBarItem key="tabBarItem" title="Your List" image="ConvertIcon" id="hWW-cE-NRw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qOV-iy-P0H">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -375,7 +361,7 @@
         <scene sceneID="Txq-i9-D7W">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ccu-Qy-IZ8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Places" id="a3i-zf-9ce"/>
+                    <tabBarItem key="tabBarItem" title="Places" image="earth-america-7" id="a3i-zf-9ce"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T9y-g1-E6c">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -391,4 +377,9 @@
             <point key="canvasLocation" x="896.79999999999995" y="-189.16256157635468"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ConvertIcon" width="48" height="32"/>
+        <image name="MapIcon" width="48" height="32"/>
+        <image name="earth-america-7" width="30" height="30"/>
+    </resources>
 </document>
