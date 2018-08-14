@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func chooseACountry(_ sender: UIButton) {
+    @IBAction func showCountries(_ sender: UIButton) {
         let continentsScene = ContinentsViewController.instantiate(fromAppStoryboard: .Place)
         if let navigator = navigationController {
             navigator.pushViewController(continentsScene, animated: true)

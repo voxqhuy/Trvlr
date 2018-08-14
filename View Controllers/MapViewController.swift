@@ -25,10 +25,6 @@ class MapViewController: UIViewController {
         mapView.showsScale = true
         
         view = mapView
-        
-//        let scale = MKScaleView(mapView: mapView)
-//        scale.scaleVisibility = .visible
-//        view.addSubview(scale)
     }
     
     override func viewDidLoad() {
@@ -54,9 +50,9 @@ extension MapViewController: MKMapViewDelegate {
             view = dequeuedView
         } else {
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: 0, y: 20)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//            view.canShowCallout = true
+//            view.calloutOffset = CGPoint(x: 0, y: 20)
+//            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         return view
     }

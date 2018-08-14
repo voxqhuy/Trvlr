@@ -9,39 +9,73 @@
 import UIKit
 
 class CountryBank: NSObject {
-    let archiveKey = "countries.archive"
-    var cachingKey: URL {
-        return cachingURL(forKey: archiveKey)
-    }
-    var allCountries = [CountryData]()
+    let enabledArchiveKey = "enabledCountries.archive"
+    let disabledArchiveKey = "disabledCountries.archive"
+    var enabledDocumentKey: URL!
+    var disabledDocumentKey: URL!
+    var continent: String!
+    
+    var enabledCountries = [CountryData]()
+    var disabledCountries = [CountryData]()
     var currentCountries = [CountryData]()
     
     override init() {
         super.init()
+    }
+    
+    init(continent: String) {
+        self.continent = continent
+        self.enabledDocumentKey = documentURL(forKey: "\(continent).\(enabledArchiveKey)")
+        self.disabledDocumentKey = documentURL(forKey: "\(continent).\(disabledArchiveKey)")
         
-        guard let data = NSKeyedUnarchiver.unarchiveObject(withFile: cachingKey.path) as? Data else { return }
+        guard let enabledData = NSKeyedUnarchiver.unarchiveObject(withFile: enabledDocumentKey.path) as? Data else { return }
+        guard let disabledData = NSKeyedUnarchiver.unarchiveObject(withFile: disabledDocumentKey.path) as? Data else { return }
         do {
-            let archivedCountries = try PropertyListDecoder().decode([CountryData].self, from: data)
-            allCountries = archivedCountries
-            currentCountries = allCountries
+            let archivedEnabledCountries = try PropertyListDecoder().decode([CountryData].self, from: enabledData)
+            enabledCountries = archivedEnabledCountries
+            currentCountries = enabledCountries
         } catch {
-            print("Decode archived countries failed")
+            print("Decoding enabled countries failed")
+        }
+        
+        do {
+            let archivedDisabledCountries = try PropertyListDecoder().decode([CountryData].self, from: disabledData)
+            disabledCountries = archivedDisabledCountries
+        } catch {
+            print("Decoding disabled countries failed")
         }
     }
     
+//    override init() {
+//        super.init()
+//
+//    }
+    
     func filterCountries(withText text: String) {
-        currentCountries = allCountries.filter { country -> Bool in
+        currentCountries = enabledCountries.filter { country -> Bool in
             return country.name.lowercased().contains(text.lowercased())
         }
     }
     
     func saveCountries() {
         do {
-            let data = try PropertyListEncoder().encode(allCountries)
-            let success = NSKeyedArchiver.archiveRootObject(data, toFile: cachingKey.path)
-            print(success ? "Successful save" : "Save failed")
+            // archive enabled countries
+            let enabledData = try PropertyListEncoder().encode(enabledCountries)
+            let success = NSKeyedArchiver.archiveRootObject(enabledData, toFile: enabledDocumentKey.path)
+            
+            print(success ? "Successfully saved enabled countries" : "aving enabled countries failed")
         } catch {
-            print("Save failed")
+            print("Saving enabled countries failed")
+        }
+        
+        do {
+            // archive disabled countries
+            let disabledData = try PropertyListEncoder().encode(disabledCountries)
+            let success = NSKeyedArchiver.archiveRootObject(disabledData, toFile: disabledDocumentKey.path)
+            
+            print(success ? "Successfully saved disabled countries" : "Saving disabled countries failed")
+        } catch {
+            print("Saving disabled countries failed")
         }
     }
 }

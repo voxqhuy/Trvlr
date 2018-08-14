@@ -20,7 +20,7 @@ enum CountriesResult {
 struct TrvlrAPI {
     
     private static let continentUrl = URL(string: "https://api.myjson.com/bins/lylg0")
-    private static let countryUrl = URL(string: "https://api.myjson.com/bins/g2ek0")
+    private static let countryUrl = URL(string: "https://api.myjson.com/bins/sfyr8")
     
     static func fetchContinents(completion: @escaping (ContinentsResult) -> Void) {
         guard let downloadURL = continentUrl else { return }
@@ -48,14 +48,16 @@ struct TrvlrAPI {
                 completion(.failure(.countryJsonError))
                 return
             }
-            print("downloaded countries")
             do {
                 let decoder = JSONDecoder()
                 let countries = try decoder.decode(Country.self, from: data)
                 let filteredCountries = countries.filter { $0.value.continent.rawValue == continent }
                 let sortedCountries = filteredCountries.sorted(by: { $0.value.name < $1.value.name })
+                
                 completion(.success(sortedCountries))
+                print("downloaded countries")
             } catch {
+                print(error)
                 completion(.failure(.countryDecodeError))
             }
         }.resume()

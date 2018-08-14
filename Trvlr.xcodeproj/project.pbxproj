@@ -30,6 +30,7 @@
 		8F6257E921168F2400794E4D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257E821168F2400794E4D /* Errors.swift */; };
 		8F6257EB2116909800794E4D /* Continent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6257EA2116909800794E4D /* Continent.swift */; };
 		8F6D11AD211D0407001E3346 /* ContinentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D11AC211D0407001E3346 /* ContinentCell.swift */; };
+		8F7937E521233CDC00E7EA8E /* MoreCountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7937E421233CDC00E7EA8E /* MoreCountriesTableViewController.swift */; };
 		8F7E2B12211E064500DDC937 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E2B11211E064500DDC937 /* Annotation.swift */; };
 		8F93558D211CA59400918EA3 /* CountryBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F93558C211CA59400918EA3 /* CountryBank.swift */; };
 		8FB651AE2118F96E00552D44 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB651AD2118F96E00552D44 /* CountryCell.swift */; };
@@ -62,6 +63,7 @@
 		8F6257E821168F2400794E4D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		8F6257EA2116909800794E4D /* Continent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continent.swift; sourceTree = "<group>"; };
 		8F6D11AC211D0407001E3346 /* ContinentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentCell.swift; sourceTree = "<group>"; };
+		8F7937E421233CDC00E7EA8E /* MoreCountriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCountriesTableViewController.swift; sourceTree = "<group>"; };
 		8F7E2B11211E064500DDC937 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		8F93558C211CA59400918EA3 /* CountryBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryBank.swift; sourceTree = "<group>"; };
 		8FB651AD2118F96E00552D44 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				8FB651AD2118F96E00552D44 /* CountryCell.swift */,
 				8F6D11AC211D0407001E3346 /* ContinentCell.swift */,
+				8F7937E421233CDC00E7EA8E /* MoreCountriesTableViewController.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				8F184FCD2114DF4A00CF2749 /* AppDelegate.swift in Sources */,
 				8F6257E72116881700794E4D /* HomeViewController.swift in Sources */,
 				8F184FF02114EE2D00CF2749 /* ExpensesViewController.swift in Sources */,
+				8F7937E521233CDC00E7EA8E /* MoreCountriesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,22 +11,27 @@ import Foundation
 typealias Country = [String: CountryValue]
 
 struct CountryValue: Codable {
-    let name, native, phone: String
+    let name: String
+    let enabled: Bool
+    let native: String
     let continent: Continent.CodingKeys
     let capital, currency: String
     let languages: [String]
 }
 
 class CountryData: Codable {
+    var enabled: Bool
     let name, capital, currency: String
     
     enum CodingKeys: String, CodingKey {
+        case enabled
         case name
         case capital
         case currency
     }
     
-    init(name: String, capital: String, currency: String) {
+    init(enabled: Bool, name: String, capital: String, currency: String) {
+        self.enabled = enabled
         self.name = name
         self.capital = capital
         self.currency = currency
@@ -35,6 +40,7 @@ class CountryData: Codable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
+        enabled = try container.decode(Bool.self, forKey: .enabled)
         name = try container.decode(String.self, forKey: .name)
         capital = try container.decode(String.self, forKey: .capital)
         currency = try container.decode(String.self, forKey: .currency)
@@ -43,6 +49,7 @@ class CountryData: Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
+        try container.encode(enabled, forKey: .enabled)
         try container.encode(name, forKey: .name)
         try container.encode(capital, forKey: .capital)
         try container.encode(currency, forKey: .currency)

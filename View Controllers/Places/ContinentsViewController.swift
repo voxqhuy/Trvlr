@@ -32,7 +32,7 @@ class ContinentsViewController: UITableViewController {
         switch segue.identifier {
         case "showCountries":
             guard let selectedIndexPath = tableView.indexPathsForSelectedRows?.first else { return }
-            let continentKey = Array(continents)[selectedIndexPath.row].key
+            let continentKey = Array(continents)[selectedIndexPath.section].key
             guard let countriesVC = segue.destination as? CountriesViewController else { return }
             countriesVC.continent = continentKey
         default:

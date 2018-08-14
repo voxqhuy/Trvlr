@@ -13,8 +13,12 @@ class CountriesViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
     
-    var continent: String!
-    let countryBank = CountryBank()
+    var countryBank = CountryBank()
+    var continent: String! {
+        didSet {
+            countryBank = CountryBank(continent: continent)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,9 @@ class CountriesViewController: UIViewController {
         searchBar.delegate = self
         tableView.tableHeaderView = UIView()
         navigationItem.titleView = searchBar
+        
+        let addCountriesItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showMoreCountries))
+        navigationItem.rightBarButtonItem = addCountriesItem
         
         loadCountries()
     }
@@ -45,7 +52,7 @@ extension CountriesViewController: UITableViewDelegate {
 extension CountriesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            countryBank.currentCountries = countryBank.allCountries
+            countryBank.currentCountries = countryBank.enabledCountries
             tableView.reloadData()
             return
         }
@@ -59,23 +66,25 @@ extension CountriesViewController: UISearchBarDelegate {
 extension CountriesViewController {
     func loadCountries() {
         // check archived files in Caches directory
-        if !countryBank.allCountries.isEmpty {
-            
-        } else {
+        if countryBank.enabledCountries.isEmpty {
             TrvlrAPI.fetchCountries(byContinent: continent) { [unowned self] (countriesResult) in
                 switch countriesResult {
                 case let .success(countries):
                     
                     for country in countries {
-                        let countryData = CountryData(name: country.1.name, capital: country.1.capital, currency: country.1.currency)
-                        
-                        self.countryBank.allCountries.append(countryData)
+                        let enabled = country.1.enabled
+                        let countryData = CountryData(enabled: enabled, name: country.1.name, capital: country.1.capital, currency: country.1.currency)
+                        if enabled {
+                            self.countryBank.enabledCountries.append(countryData)
+                        } else {
+                            self.countryBank.disabledCountries.append(countryData)
+                        }
                     }
                     // archive countries into Caches directory
                     self.countryBank.saveCountries()
                     
                 case let .failure(error):
-                    self.countryBank.allCountries.removeAll()
+                    self.countryBank.enabledCountries.removeAll()
                     
                     if error == .countryJsonError {
                         print("Error loading country Json")
@@ -86,18 +95,24 @@ extension CountriesViewController {
                     }
                 }
                 
-                self.countryBank.currentCountries = self.countryBank.allCountries
+                self.countryBank.currentCountries = self.countryBank.enabledCountries
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
         }
-
-//        do {
-//            let data = try PropertyListEncoder().encode(self.allCountries)
-//            let success = NSKeyedArchiver.archiveRootObject(data, toFile: )
-//        }
     }
     
+    @objc func showMoreCountries() {
+        let navVC = UINavigationController()
+        let moreCountriesVC = MoreCountriesTableViewController()
+        moreCountriesVC.disabledCountries = countryBank.disabledCountries
+        // set moreCountriesVC as the navVC's root view controller
+        navVC.viewControllers = [moreCountriesVC]
+        
+        present(navVC, animated: true) { [unowned self] in
+            self.tableView.reloadData()
+        }
+    }
 }
