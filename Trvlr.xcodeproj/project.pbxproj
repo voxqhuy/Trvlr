@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F0CC2AA2127344400E21071 /* ExpenseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0CC2A92127344400E21071 /* ExpenseDelegate.swift */; };
+		8F0CC2AC212741CC00E21071 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0CC2AB212741CC00E21071 /* Expense.swift */; };
 		8F12A8912117DEF4006E32D8 /* Place.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F12A8902117DEF4006E32D8 /* Place.storyboard */; };
 		8F184FCD2114DF4A00CF2749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */; };
 		8F184FD22114DF4A00CF2749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F184FD02114DF4A00CF2749 /* Main.storyboard */; };
@@ -32,12 +34,20 @@
 		8F6D11AD211D0407001E3346 /* ContinentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D11AC211D0407001E3346 /* ContinentCell.swift */; };
 		8F7937E521233CDC00E7EA8E /* MoreCountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7937E421233CDC00E7EA8E /* MoreCountriesTableViewController.swift */; };
 		8F7E2B12211E064500DDC937 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E2B11211E064500DDC937 /* Annotation.swift */; };
+		8F873667212490070047E829 /* ExpenseView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F873666212490070047E829 /* ExpenseView1.xib */; };
 		8F93558D211CA59400918EA3 /* CountryBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F93558C211CA59400918EA3 /* CountryBank.swift */; };
+		8F9B7F7C2125F86800EA0F08 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9B7F7B2125F86800EA0F08 /* City.swift */; };
 		8FB651AE2118F96E00552D44 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB651AD2118F96E00552D44 /* CountryCell.swift */; };
 		8FB651B12118FD8D00552D44 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB651B02118FD8D00552D44 /* Country.swift */; };
+		8FDEB70921264BDC005E0781 /* ExpenseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDEB70821264BDC005E0781 /* ExpenseView.xib */; };
+		8FDEB70B21264C33005E0781 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDEB70A21264C33005E0781 /* NibView.swift */; };
+		8FDEB70D21264FEF005E0781 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDEB70C21264FEF005E0781 /* UIView+Additions.swift */; };
+		8FDEB70F212651B8005E0781 /* ExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDEB70E212651B8005E0781 /* ExpenseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F0CC2A92127344400E21071 /* ExpenseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDelegate.swift; sourceTree = "<group>"; };
+		8F0CC2AB212741CC00E21071 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		8F12A8902117DEF4006E32D8 /* Place.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Place.storyboard; sourceTree = "<group>"; };
 		8F184FC92114DF4A00CF2749 /* Trvlr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trvlr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F184FCC2114DF4A00CF2749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,9 +75,15 @@
 		8F6D11AC211D0407001E3346 /* ContinentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentCell.swift; sourceTree = "<group>"; };
 		8F7937E421233CDC00E7EA8E /* MoreCountriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCountriesTableViewController.swift; sourceTree = "<group>"; };
 		8F7E2B11211E064500DDC937 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		8F873666212490070047E829 /* ExpenseView1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseView1.xib; sourceTree = "<group>"; };
 		8F93558C211CA59400918EA3 /* CountryBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryBank.swift; sourceTree = "<group>"; };
+		8F9B7F7B2125F86800EA0F08 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		8FB651AD2118F96E00552D44 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		8FB651B02118FD8D00552D44 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		8FDEB70821264BDC005E0781 /* ExpenseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseView.xib; sourceTree = "<group>"; };
+		8FDEB70A21264C33005E0781 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
+		8FDEB70C21264FEF005E0781 /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
+		8FDEB70E212651B8005E0781 /* ExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +100,13 @@
 		8F184FC02114DF4A00CF2749 = {
 			isa = PBXGroup;
 			children = (
+				8F0CC2A92127344400E21071 /* ExpenseDelegate.swift */,
 				8F7E2B13211E064A00DDC937 /* Custom Class */,
 				8F3EBFBC2118BE9800CFC124 /* Extensions */,
 				8F6257E321167EB300794E4D /* Utils */,
 				8F6257E22116784600794E4D /* Models */,
 				8F6257E12116781300794E4D /* View Controllers */,
-				8FB651AF2118F97B00552D44 /* Custom Views */,
+				8FDEB70721264025005E0781 /* Views */,
 				8F184FCB2114DF4A00CF2749 /* Trvlr */,
 				8F184FCA2114DF4A00CF2749 /* Products */,
 			);
@@ -120,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				8F3EBFBA2118BE8800CFC124 /* UIViewController+Additions.swift */,
+				8FDEB70C21264FEF005E0781 /* UIView+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -144,6 +162,8 @@
 				8FB651B02118FD8D00552D44 /* Country.swift */,
 				8F43C51B211BB0EF00C8662C /* Image.swift */,
 				8F93558C211CA59400918EA3 /* CountryBank.swift */,
+				8F9B7F7B2125F86800EA0F08 /* City.swift */,
+				8F0CC2AB212741CC00E21071 /* Expense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +185,17 @@
 				8F7E2B11211E064500DDC937 /* Annotation.swift */,
 			);
 			path = "Custom Class";
+			sourceTree = "<group>";
+		};
+		8F87366A21249A130047E829 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				8F873666212490070047E829 /* ExpenseView1.xib */,
+				8FDEB70821264BDC005E0781 /* ExpenseView.xib */,
+				8FDEB70E212651B8005E0781 /* ExpenseView.swift */,
+				8FDEB70A21264C33005E0781 /* NibView.swift */,
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		8F93558A211C9C9B00918EA3 /* Places */ = {
@@ -195,6 +226,15 @@
 				8F7937E421233CDC00E7EA8E /* MoreCountriesTableViewController.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		8FDEB70721264025005E0781 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F87366A21249A130047E829 /* XIBs */,
+				8FB651AF2118F97B00552D44 /* Custom Views */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +296,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F12A8912117DEF4006E32D8 /* Place.storyboard in Resources */,
+				8F873667212490070047E829 /* ExpenseView1.xib in Resources */,
 				8F184FD72114DF4B00CF2749 /* LaunchScreen.storyboard in Resources */,
+				8FDEB70921264BDC005E0781 /* ExpenseView.xib in Resources */,
 				8F184FD42114DF4B00CF2749 /* Assets.xcassets in Resources */,
 				8F184FD22114DF4A00CF2749 /* Main.storyboard in Resources */,
 			);
@@ -272,11 +314,14 @@
 				8F184FE32114E71C00CF2749 /* ContinentsViewController.swift in Sources */,
 				8F184FF22114EE5600CF2749 /* PlanViewController.swift in Sources */,
 				8F184FEE2114ED1700CF2749 /* TripViewController.swift in Sources */,
+				8FDEB70F212651B8005E0781 /* ExpenseView.swift in Sources */,
 				8F43C51A211B9FD500C8662C /* Helper.swift in Sources */,
 				8F184FE12114E70000CF2749 /* YourListViewController.swift in Sources */,
+				8FDEB70B21264C33005E0781 /* NibView.swift in Sources */,
 				8F184FDF2114E62300CF2749 /* MapViewController.swift in Sources */,
 				8F6257E921168F2400794E4D /* Errors.swift in Sources */,
 				8F184FEA2114EC6A00CF2749 /* CitiesViewController.swift in Sources */,
+				8FDEB70D21264FEF005E0781 /* UIView+Additions.swift in Sources */,
 				8F184FEC2114ECC500CF2749 /* DayPlansTableViewController.swift in Sources */,
 				8F43C51C211BB0EF00C8662C /* Image.swift in Sources */,
 				8F6D11AD211D0407001E3346 /* ContinentCell.swift in Sources */,
@@ -290,8 +335,11 @@
 				8F3EBFB92118ACBE00CFC124 /* AppStoryboard.swift in Sources */,
 				8F6257EB2116909800794E4D /* Continent.swift in Sources */,
 				8F184FCD2114DF4A00CF2749 /* AppDelegate.swift in Sources */,
+				8F0CC2AC212741CC00E21071 /* Expense.swift in Sources */,
 				8F6257E72116881700794E4D /* HomeViewController.swift in Sources */,
 				8F184FF02114EE2D00CF2749 /* ExpensesViewController.swift in Sources */,
+				8F9B7F7C2125F86800EA0F08 /* City.swift in Sources */,
+				8F0CC2AA2127344400E21071 /* ExpenseDelegate.swift in Sources */,
 				8F7937E521233CDC00E7EA8E /* MoreCountriesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol EditingCountriesDelegation {
+    func updateCountries(enabledCountries: [CountryData], disabledCountries: [CountryData])
+}
+
 class MoreCountriesTableViewController: UITableViewController {
 
     let cellID = "cellID"
+    var delegate:EditingCountriesDelegation!
     var disabledCountries = [CountryData]()
+    var enabledCountries = [CountryData]()
     var selectedIndexes = [Int]()
+    var selectedCountries = [CountryData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +27,15 @@ class MoreCountriesTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAdding))
+        for country in disabledCountries {
+            country.enabled = false
+        }
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         navigationItem.rightBarButtonItem = doneButton
+        navigationItem.leftBarButtonItem = cancelButton
+        title = "Add more"
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,20 +74,24 @@ class MoreCountriesTableViewController: UITableViewController {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
+    @IBAction func done(_ sender: UIBarButtonItem) {
+        updateCountries()
+        self.delegate.updateCountries(enabledCountries: enabledCountries, disabledCountries: disabledCountries)
+        cancel()
+    }
     
+    @objc func cancel() {
+        self.performSegue(withIdentifier: "backToCountries", sender: nil)
+    }
 }
 
 extension MoreCountriesTableViewController {
-    @objc func doneAdding() {
-        updateCountries()
-        
-        dismiss(animated: true, completion: nil)
-    }
     
     func updateCountries() {
         for (index, country) in disabledCountries.enumerated() {
             if country.enabled {
                 selectedIndexes.append(index)
+                selectedCountries.append(country)
             }
         }
         
@@ -84,5 +102,8 @@ extension MoreCountriesTableViewController {
             .map { $0.element }
         
         // and add them to the enabled countries
+        enabledCountries
+            .append(contentsOf: selectedCountries)
+        enabledCountries = enabledCountries.sorted(by: { $0.name < $1.name })
     }
 }

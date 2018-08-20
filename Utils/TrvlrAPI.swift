@@ -17,10 +17,17 @@ enum CountriesResult {
     case success([(key: String, value: CountryValue)])
     case failure(CountryError)
 }
+
+enum CitiesResult {
+    case success(City)
+    case failure(CityError)
+}
+
 struct TrvlrAPI {
     
     private static let continentUrl = URL(string: "https://api.myjson.com/bins/lylg0")
-    private static let countryUrl = URL(string: "https://api.myjson.com/bins/sfyr8")
+    private static let countryUrl = URL(string: "https://api.myjson.com/bins/qty0s")
+    private static let cityUrl = URL(string: "https://api.myjson.com/bins/12i970")
     
     static func fetchContinents(completion: @escaping (ContinentsResult) -> Void) {
         guard let downloadURL = continentUrl else { return }
@@ -59,6 +66,27 @@ struct TrvlrAPI {
             } catch {
                 print(error)
                 completion(.failure(.countryDecodeError))
+            }
+        }.resume()
+    }
+    
+    static func fetchCities(byCountry country: String, completion: @escaping (CitiesResult) -> Void) {
+        guard let downloadURL = cityUrl else { return }
+        URLSession.shared.dataTask(with: downloadURL) { data, urlResponse, error in
+            guard let data = data, error == nil, urlResponse != nil else {
+                completion(.failure(.cityJsonError))
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let cities = try decoder.decode(City.self, from: data)
+                let filteredCities = cities.filter { $0.country == country }
+                let sortedCities = filteredCities.sorted(by: { $0.name < $1.name })
+                completion(.success(sortedCities))
+                print("downloaded cities")
+            } catch {
+                print(error)
+                completion(.failure(.cityDecodeError))
             }
         }.resume()
     }

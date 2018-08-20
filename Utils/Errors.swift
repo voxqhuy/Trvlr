@@ -17,3 +17,8 @@ enum CountryError: Error {
     case countryJsonError
     case countryDecodeError
 }
+
+enum CityError: Error {
+    case cityJsonError
+    case cityDecodeError
+}

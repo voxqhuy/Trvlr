@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CountriesViewController: UIViewController {
+class CountriesViewController: UIViewController, EditingCountriesDelegation {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
@@ -38,6 +38,15 @@ class CountriesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func backToCountries(segue: UIStoryboardSegue) {}
+    
+    func updateCountries(enabledCountries: [CountryData], disabledCountries: [CountryData]) {
+        countryBank.enabledCountries = enabledCountries
+        countryBank.currentCountries = enabledCountries
+        countryBank.disabledCountries = disabledCountries
+        tableView.reloadData()
     }
 }
 
@@ -73,7 +82,7 @@ extension CountriesViewController {
                     
                     for country in countries {
                         let enabled = country.1.enabled
-                        let countryData = CountryData(enabled: enabled, name: country.1.name, capital: country.1.capital, currency: country.1.currency)
+                        let countryData = CountryData(enabled: enabled, countryKey: country.0, name: country.1.name, capital: country.1.capital, currency: country.1.currency)
                         if enabled {
                             self.countryBank.enabledCountries.append(countryData)
                         } else {
@@ -105,14 +114,26 @@ extension CountriesViewController {
     }
     
     @objc func showMoreCountries() {
-        let navVC = UINavigationController()
-        let moreCountriesVC = MoreCountriesTableViewController()
-        moreCountriesVC.disabledCountries = countryBank.disabledCountries
-        // set moreCountriesVC as the navVC's root view controller
-        navVC.viewControllers = [moreCountriesVC]
-        
-        present(navVC, animated: true) { [unowned self] in
-            self.tableView.reloadData()
+        self.performSegue(withIdentifier: "showMoreCountries", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showMoreCountries":
+            let moreCountriesNav = segue.destination as! UINavigationController
+            let moreCountriesVC = moreCountriesNav.viewControllers[0] as! MoreCountriesTableViewController
+            moreCountriesVC.disabledCountries = countryBank.disabledCountries
+            moreCountriesVC.enabledCountries = countryBank.enabledCountries
+            moreCountriesVC.delegate = self
+        case "showCities":
+            guard let selectedIndexPath = tableView.indexPathsForSelectedRows?.first else { return }
+            let countryKey = countryBank.currentCountries[selectedIndexPath.row].countryKey
+            
+            guard let citiesVC = segue.destination as? CitiesViewController else { return }
+            citiesVC.countryKey = countryKey
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }
 }

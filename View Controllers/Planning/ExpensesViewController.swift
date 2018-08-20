@@ -10,26 +10,49 @@ import UIKit
 
 class ExpensesViewController: UIViewController {
 
+    @IBOutlet var expenseView: ExpenseView!
+    var city: CityData!
+    var expense: Expense!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        expenseView.expenseDelegate = self
+        
+        title = city.name
+        expenseView.cityLabel.text = "\(city.name) expense rate"
+        expenseView.cityExpenseLabel.text = "$\(city.expense)"
+        expense = Expense(cityExpense: city.expense)
+        
+        updateTotal()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension ExpensesViewController: ExpenseDelegate {
+    func removeADay() {
+        expense.daysCount -= 1
     }
-    */
-
+    
+    func addADay() {
+        expense.daysCount += 1
+    }
+    
+    func removeAPerson() {
+        expense.peopleCount -= 1
+    }
+    
+    func addAPerson() {
+        expense.peopleCount += 1
+    }
+    
+    func updateTotal() {
+        expenseView.daysTextField.text = "\(expense.daysCount)"
+        expenseView.peopleTextField.text = "\(expense.peopleCount)"
+        expenseView.totalLabel.text = "\(expense.total)"
+    }
 }

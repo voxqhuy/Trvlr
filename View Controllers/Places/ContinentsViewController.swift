@@ -90,11 +90,9 @@ extension ContinentsViewController {
             switch continentsResult {
             case let .success(continent):
                 self.continents["AF"] = ContinentData(name: continent.af, image: UIImage(named: "Africa")!)
-                self.continents["AN"] = ContinentData(name: continent.an, image: UIImage(named: "Africa")!)
                 self.continents["AS"] = ContinentData(name: continent.continentAS, image: UIImage(named: "Asia")!)
                 self.continents["EU"] = ContinentData(name: continent.eu, image: UIImage(named: "Europe")!)
                 self.continents["NA"] = ContinentData(name: continent.na, image: UIImage(named: "North America")!)
-                self.continents["OC"] = ContinentData(name: continent.oc, image: UIImage(named: "Africa")!)
                 self.continents["SA"] = ContinentData(name: continent.sa, image: UIImage(named: "South America")!)
             case let .failure(error):
                 self.continents.removeAll()

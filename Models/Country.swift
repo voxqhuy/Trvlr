@@ -21,17 +21,19 @@ struct CountryValue: Codable {
 
 class CountryData: Codable {
     var enabled: Bool
-    let name, capital, currency: String
+    let countryKey, name, capital, currency: String
     
     enum CodingKeys: String, CodingKey {
         case enabled
+        case countryKey
         case name
         case capital
         case currency
     }
     
-    init(enabled: Bool, name: String, capital: String, currency: String) {
+    init(enabled: Bool, countryKey: String, name: String, capital: String, currency: String) {
         self.enabled = enabled
+        self.countryKey = countryKey
         self.name = name
         self.capital = capital
         self.currency = currency
@@ -41,6 +43,7 @@ class CountryData: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         enabled = try container.decode(Bool.self, forKey: .enabled)
+        countryKey = try container.decode(String.self, forKey: .countryKey)
         name = try container.decode(String.self, forKey: .name)
         capital = try container.decode(String.self, forKey: .capital)
         currency = try container.decode(String.self, forKey: .currency)
@@ -50,6 +53,7 @@ class CountryData: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(enabled, forKey: .enabled)
+        try container.encode(countryKey, forKey: .countryKey)
         try container.encode(name, forKey: .name)
         try container.encode(capital, forKey: .capital)
         try container.encode(currency, forKey: .currency)
