@@ -15,11 +15,13 @@ class MapViewController: UIViewController {
     let vinhAnnotation = Annotation(title: "Vinh city", coordinate: CLLocationCoordinate2D(latitude: 18.6796, longitude: 2015.6813))
     let phuketAnnotation = Annotation(title: "Phuket Island", coordinate: CLLocationCoordinate2D(latitude: 7.9519, longitude: 98.3381))
     let sauAnnotation = Annotation(title: "Collegedale city", coordinate: CLLocationCoordinate2D(latitude: 35.0531, longitude: -85.0502))
+    let statueOfLibertyAnnotation = Annotation(title: "Statue of Liberty", coordinate: CLLocationCoordinate2D(latitude: 40.6892, longitude: -74.0445))
+    let grandCanyonAnnotation = Annotation(title: "Grand Canyon", coordinate: CLLocationCoordinate2D(latitude: 36.0566, longitude: -112.1251))
     
     override func loadView() {
         mapView = MKMapView()
         mapView.delegate = self
-        let annotations = [vinhAnnotation, phuketAnnotation, sauAnnotation]
+        let annotations = [vinhAnnotation, phuketAnnotation, sauAnnotation, statueOfLibertyAnnotation, grandCanyonAnnotation]
         mapView.addAnnotations(annotations)
         mapView.showsCompass = false
         mapView.showsScale = true
