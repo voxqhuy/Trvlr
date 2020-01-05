@@ -30,9 +30,17 @@ Future implementations:
 - Showing the suggested flight routes to travel to those destinations.
 ```
 
+<br/>
+<br/>
+<br/>
+
 ***3. Your list*** (Future implementation)
 
-**Screenshots**
+<br/>
+<br/>
+<br/>
+
+<h2>Screenshots</h2>
 
 <p float="left">
   <img src="Screenshots/continent.png" width="215" />
