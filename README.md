@@ -1,4 +1,4 @@
-![alt trvlr](cover1.png)
+![alt trvlr](cover2.png)
 A traveling guide iOS app that helps travelers save time and money.
 
 <h2>Main functions</h2>
