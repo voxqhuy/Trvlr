@@ -1,5 +1,3 @@
-# Trvlr
-
 ![alt trvlr](cover1.png)
 A traveling guide iOS app that helps travelers save time and money.
 
