@@ -1,5 +1,8 @@
 # Trvlr
 
+![alt text](cover.png)
+A traveling guide iOS app that helps travelers save time and money.
+
 <h2>Main functions</h2>
 
 <img align="right" src="Screenshots/places.png" width="250">
