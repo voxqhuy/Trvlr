@@ -1,6 +1,7 @@
 ![alt trvlr](cover2.png)
 A traveling guide iOS app that helps travelers save time and money.
 
+<br/>
 <h2>Main functions</h2>
 
 <img align="right" src="Screenshots/places.png" width="250">
@@ -32,14 +33,11 @@ Future implementations:
 ```
 
 <br/>
-<br/>
-<br/>
-
 ***3. Your list*** (Future implementation)
+<br/>
 
-<br/>
-<br/>
-<br/>
+<h2>Technologies</h2>
+<p>Xcode, Swift, MVC.</p>
 
 <h2>Screenshots</h2>
 
