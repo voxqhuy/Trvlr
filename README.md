@@ -33,7 +33,7 @@ Future implementations:
 ```
 
 <br/>
-***3. Your list*** (Future implementation)
+***3. Your list (Future implementation)***
 <br/>
 
 <h2>Technologies</h2>
