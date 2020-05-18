@@ -2,7 +2,7 @@
 A traveling guide iOS app that helps travelers save time and money.
 
 <br/>
-<h2>Main functions</h2>
+<h2>Main features</h2>
 
 <img align="right" src="Screenshots/places.png" width="250">
 
